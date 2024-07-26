@@ -30,9 +30,18 @@ There are four main tasks sharing the same underlying data collection, learning 
 
 ### Installation ###
 
-This work relies on the [Tactile Sim](https://github.com/dexterousrobot/tactile_sim), [Tactile Learning](https://github.com/dexterousrobot/tactile_learning) and [Tactile Data](https://github.com/dexterousrobot/tactile_data) reposotories. Please follow installation instructions within these repos first.
+This work relies on the following repositories:
+- [Tactile Sim](https://github.com/dexterousrobot/tactile_sim)
+- [Tactile Learning](https://github.com/dexterousrobot/tactile_learning)
+- [Tactile Data](https://github.com/dexterousrobot/tactile_data) 
+- [Tactile Data Shear](https://github.com/dexterousrobot/tactile_data_shear)
+- [Tactile Image Processing](https://github.com/dexterousrobot/tactile_image_processing)
+- [Common Robot Interface](https://github.com/dexterousrobot/common_robot_interface)
 
-Install Tactile-Gym Servo Control
+They can be installed by cloning, going into their respective root directories and calling ```pip install -e .```.
+
+
+Then you can proceed to installing Tactile Servo Control (this repository):
 
 ```
 git clone https://github.com/dexterousrobot/tactile_servo_control.git
@@ -61,10 +70,10 @@ These can be found in ```utils/parse_args.py```.
 
 ### Data Collection ###
 
-Example data is provided in the [Tactile Data](https://github.com/dexterousrobot/tactile_data) reposortory. Alternate data can be quickly generated and gathered in simulation using
+Example data is provided in the [Tactile Data](https://github.com/dexterousrobot/tactile_data) and [Tactile Data Shear](https://github.com/dexterousrobot/tactile_data_shear) repositories. Alternate data can be quickly generated and gathered in simulation using
 
 ```
-python data_collection/launch_collect_data.py -t task_name
+python collect_data/launch_collect_data.py -t task_name
 ```
 
 where task_name is selected from ```[surface_3d edge_2d edge_3d edge_5d]```. If multiple tasks are input they will be executed in the order of input.
@@ -73,7 +82,7 @@ This can be generated significantly faster with rendering and GUI disabled on Ub
 
 ### Learning ###
 
-This directory contains helper files for launching supervised learning algorithms through the [Tactile Learning](https://github.com/dexterousrobot/tactile_learning) reposortory.
+This directory contains helper files for launching supervised learning algorithms through the [Tactile Learning](https://github.com/dexterousrobot/tactile_learning) repository.
 
 The aim is to predict the pose of the tactile sensor based on the tactile image gathered during data collection.  Pose is encoded and decoded for accurate NN prediction, this uses normalisation for position and  sine/cosine encoding for rotation. Details of this can be found in ```utils/label_encoder.py```.
 
@@ -145,7 +154,7 @@ Tactile Gym 2.0
      series={Proceedings of Machine Learning Research},
      month={August},
      publisher={IEEE},
-     doi={10.1109/LRA.2022.3195195}}
+     doi={10.1109/LRA.2022.3195195}
      url={https://ieeexplore.ieee.org/abstract/document/9847020},
 }
 ```
