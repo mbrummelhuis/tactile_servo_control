@@ -37,6 +37,7 @@ This work relies on the following repositories:
 - [Tactile Data Shear](https://github.com/dexterousrobot/tactile_data_shear)
 - [Tactile Image Processing](https://github.com/dexterousrobot/tactile_image_processing)
 - [Common Robot Interface](https://github.com/dexterousrobot/common_robot_interface)
+- [user_input](https://github.com/dexterousrobot/user_input.git) (only for the servo control)
 
 They can be installed by cloning, going into their respective root directories and calling ```pip install -e .```.
 
@@ -115,12 +116,12 @@ python learning/launch_hyper_training.py -t task_name -d device_name
 
 ### Servo Control ###
 
-Demonstration files are provided for all tasks in the example directory. These use pretrained models included in the repo, training your own models will overwrite these pretrained models. The main logic for servo control is provided in ```servo_control/servo_control.py```.
+Demonstration files are provided for all tasks in the example directory. These use pretrained models included in the repo, training your own models will overwrite these pretrained models. The main logic for servo control is provided in ```servo_control/launch_servo_control.py```.
 
 To demonstrate servo control, from the base directory run
 
 ```
-python servo_control/servo_control.py -t task_name -d device_name
+python servo_control/launch_servo_control.py -t task_name -d device_name
 ```
 The task can be selected by adjusting the code.
 

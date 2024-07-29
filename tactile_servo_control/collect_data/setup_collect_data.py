@@ -6,18 +6,21 @@ BBOX = {
     "abb_tactip":   (25, 25, 305, 305),
     "cr_tactip":    (5, 10, 425, 430),
     "mg400_tactip": (10, 10, 310, 310),
+    "ur_tactip":    (5, 10, 425, 430),
     "sim_tactip":   (12, 12, 240, 240)
 }
 CIRCLE_MASK_RADIUS = {
     "abb_tactip":   140,
     "cr_tactip":    210,
     "mg400_tactip": None,
-    "sim_tactip":   (12, 12, 240, 240)
+    "ur_tactip":    200,
+    "sim_tactip":   240
 }
 THRESH = {
     "abb_tactip":   [61, 5],
     "cr_tactip":    [61, 5],
     "mg400_tactip": [61, 5],
+    "ur_tactip":    [61, 5],
     "sim_tactip":   None
 }
 
@@ -67,6 +70,7 @@ def setup_collect_params(robot, task, save_dir=None):
     shear_lims_dict = {
         'cr':      [(-5, -5, 0, 0, 0, -5), (5, 5, 0, 0, 0, 5)],
         'mg400':   [(-5, -5, 0, 0, 0, -5), (5, 5, 0, 0, 0, 5)],
+        'ur':      [(-5, -5, 0, 0, 0, -5), (5, 5, 0, 0, 0, 5)],
         'sim':     [(0, 0, 0, 0, 0, 0),    (0, 0, 0, 0, 0, 0)],
     }
 
@@ -102,15 +106,19 @@ def setup_env_params(robot, save_dir=None):
     if robot.split('_')[0] == 'sim':
         robot = 'sim'
 
+    # Work frame origin in base frame
     work_frame_dict = {
         'cr':    (20, -475, 100, -180, 0, 90),
         'mg400': (285,  0, 0, -180, 0, 0),
+        'ur':    (500, 0.0, 0, 0, 0, 0),
         'sim':   (650, 0, 50, -180, 0, 0),
     }
 
+    # Tool center point pose in the output flange frame
     tcp_pose_dict = {
         'cr':    (0, 0, -70, 0, 0, 0),
         'mg400': (0, 0, -50, 0, 0, 0),
+        'ur':    (0, 0, -60, 0, 0, 0),
         'sim':   (0, 0, -85, 0, 0, 0),
     }  # SHOULD BE ROBOT + SENSOR
 
